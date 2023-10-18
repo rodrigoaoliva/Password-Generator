@@ -33,6 +33,17 @@ function generatePassword() {
   }
 }
 
+var includeLowercase = confirm("Include lowercase characters?");
+var includeUppercase = confirm("Include uppercase characters?");
+var includeNumeric = confirm("Include numeric characters?");
+var includeSpecial = confirm("Include special characters?");
+
+//Asks user to confirm at least one character set option to generate a password
+if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
+  alert("At least one character type must be selected.");
+  return "";
+}
+
 
 
 
