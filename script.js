@@ -3,8 +3,8 @@ var generateBtn = document.querySelector("#generate");
 
 /*Character set options*/
 
-var lowerChars = "abcdefghijklmnopqrstuvwxyz";
-var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numericChars = "123456789";
 var specialChars = "!@#$%^&*()_-+=<>?";
 
@@ -22,16 +22,10 @@ function generatePassword() {
   var passwordLength = prompt("Enter the password length (between 8 and 128 characters):");
   passwordLength = parseInt(passwordLength); //converts strings to integers
 
-  if (passwordLength < 8) {
-  alert ("Please enter a password with more than 7 characters");
-  return ""
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    alert("Please enter a valid password length.");
+    return "";
   }
-
-  if (passwordLength > 128) {
-    alert ("Please enter a password with less than 129 characters");
-    return ""
-  }
-}
 
 var includeLowercase = confirm("Include lowercase characters?");
 var includeUppercase = confirm("Include uppercase characters?");
@@ -43,19 +37,17 @@ if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial
   alert("At least one character type must be selected.");
   return "";
 }
-
-
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+if (includeLowercase) {
+  allowedChars += lowercaseChars;
+}
+if (includeUppercase) {
+  allowedChars += uppercaseChars;
+}
+if (includeNumeric) {
+  allowedChars += numericChars;
+}
+if (includeSpecial) {
+  allowedChars += specialChars;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+}
