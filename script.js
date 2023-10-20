@@ -49,5 +49,10 @@ if (includeNumeric) {
 if (includeSpecial) {
   allowedChars += specialChars;
 }
+for (var i = 0; i < passwordLength; i++) {
+  password += getRandomCharacter(allowedChars);
+}
+
+return password
 
 }
