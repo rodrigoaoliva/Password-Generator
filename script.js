@@ -32,38 +32,43 @@ var includeUppercase = confirm("Include uppercase characters?"); //Confirmation 
 var includeNumeric = confirm("Include numeric characters?"); //Confirmation prompt asking the user to include numeric characters
 var includeSpecial = confirm("Include special characters?"); //Confirmation prompt asking the user to include special characters
 
-//Asks user to confirm at least one character set option to generate a password
-if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
-  alert("At least one character type must be selected.");
-  return "";
+if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) { //Condition to check if at least one character set option was chosen
+
+  alert("At least one character type must be selected."); //Gives the user an alert if no character set option was chosen
+  return ""; //Returns an empty string of characters
 }
+
+//Appens allowed characters based on user choices
 if (includeLowercase) {
-  allowedChars += lowercaseChars;
-}
+//Condition that appends lowercase characters to the allowedChars string if users chooses to include lowercase characters
+  allowedChars += lowercaseChars; 
+} 
 if (includeUppercase) {
-  allowedChars += uppercaseChars;
+  //Condition that appends uppercase characters to the allowedChars string if users chooses to include uppercase characters
+  allowedChars += uppercaseChars; 
 }
 if (includeNumeric) {
+//Condition that appends numeric characters to the allowedChars string if users chooses to include numeric characters
   allowedChars += numericChars;
 }
 if (includeSpecial) {
+//Condition that appends numeric characters to the allowedChars string if users chooses to include special characters
   allowedChars += specialChars;
 }
+// Generates the password by selecting random characters from allowed characters
 for (var i = 0; i < passwordLength; i++) {
   password += getRandomCharacter(allowedChars);
 }
 
-return password
+return password //Returns the generated password
 
 }
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  var password = generatePassword();   // Generate a password using the generatePassword function
+  var passwordText = document.querySelector("#password"); // Select the HTML element with the ID "password"
+  passwordText.value = password;  // Set the generated password as the value of the HTML input element
 }
 
 // Add event listener to generate button
