@@ -1,34 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
+<!DOCTYPE html> <!-- Defines the document type as HTML -->
+
+<html lang="en"> <!-- The root element of an HTML page with the language set to English -->
+
+<head> <!-- Contains meta-information about the document -->
+    <meta charset="UTF-8" /> <!-- Specifies the character encoding as UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Sets the viewport properties for responsive design -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" /> <!-- Provides information for Internet Explorer compatibility -->
+    <title>Password Generator</title> <!-- Defines the title of the page displayed in the web browser -->
+    <link rel="stylesheet" href="style.css" /> <!-- Links to an external CSS file for styling -->
+</head>
+
+<body> <!-- The main content of the web page -->
+    <div class="wrapper"> <!-- A container for the entire page content -->
+        <header> <!-- Typically contains introductory content or navigation -->
+            <h1>Password Generator</h1> <!-- Defines the main heading with level 1 (largest) -->
+        </header>
+
+        <div class="card"> <!-- A card-like container for the password generator section -->
+            <div class="card-header"> <!-- Header section within the card -->
+                <h2>Generate a Password</h2> <!-- Secondary heading with level 2 -->
+            </div>
+
+            <div class="card-body"> <!-- Body section within the card -->
+                <textarea
+                    readonly
+                    id="password"
+                    placeholder="Your Secure Password"
+                    aria-label="Generated Password"
+                ></textarea> <!-- Textarea for displaying the generated password, with accessibility attributes -->
+            </div>
+
+            <div class="card-footer"> <!-- Footer section within the card -->
+                <button id="generate" class="btn">Generate Password</button> <!-- Button for generating a password with an ID and class for styling -->
+            </div>
         </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
-      </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <script src="script.js"></script> <!-- Links to an external JavaScript file for interactivity -->
+</body>
 </html>
